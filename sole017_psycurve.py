@@ -7,15 +7,14 @@ from jaratoolbox import extraplots
 
 subject = 'sole017'
 paradigm = '2afc'
-session = '20231106a'
+sessions = ['20231106a','20231107a','20231108a']
 
-behavFile = loadbehavior.path_to_behavior_data(subject, paradigm, session)
-bdata = loadbehavior.BehaviorData(behavFile)
-
+bdata = behavioranalysis.load_many_sessions(subject, paradigm=paradigm, sessions=sessions)
+nSessions = bdata['sessionID'][-1]
 
 validTrials = bdata['valid'].astype(bool)
 rightwardChoice = bdata['choice']==bdata.labels['choice']['right']
-targetParamValue = bdata['targetFrequency']
+targetParamValue = bdata['targetAMrate']
 possibleParamValue = np.unique(targetParamValue)
 nParamValues = len(possibleParamValue)
 
@@ -31,7 +30,7 @@ fontSizeLabels = 12
 plt.ylim([0,105])
 plt.ylabel('Rightward choice (%)', fontsize=fontSizeLabels)
 plt.xlabel('AM rate (Hz)', fontsize=fontSizeLabels)
-titleStr = f'{subject}: {session}'
+titleStr = f'{subject}: {sessions}'
 plt.title(titleStr, fontsize=fontSizeLabels, fontweight='bold')
 
 plt.show()
