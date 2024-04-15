@@ -22,6 +22,7 @@ choiceRight = (choice==bdata.labels['choice']['right'])
 targetFrequency = bdata['targetFrequency']
 valid = bdata['valid'] & (choice!=bdata.labels['choice']['none'])
 
+xTicks = [5000, 10000, 16000]
 (possibleValues,fractionHitsEachValue,ciHitsEachValue,nTrialsEachValue,nHitsEachValue) = behavioranalysis.calculate_psychometric(choiceRight,targetFrequency,valid)
 
 fontSizeLabels = 12
