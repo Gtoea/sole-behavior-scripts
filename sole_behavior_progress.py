@@ -25,7 +25,7 @@ sessions = []
 #firstSession = str(input())
 #firstSession = str(20220111)
 #sole001-sole009 = str(20230426
-firstSession = str(202410410)
+firstSession = str(20240410)
 print('input the last date of the sessions you want to look at (e.g. 20220121):')
 lastSession = str(input())
 dates = pd.date_range(firstSession, lastSession)
